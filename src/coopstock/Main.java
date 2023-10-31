@@ -1,43 +1,52 @@
 package coopstock;
 
-import produto.Produto;
 
+import java.util.Objects;
 import java.util.Scanner;
+
+import static servico.ImplementaServico.cadastraProduto;
+import static servico.ImplementaServico.consultarProdutos;
 
 public class Main {
     public static void main(String[] args) {
+
+
 
         menu();
     }
 
     public static void menu() {
-        int op = 0;
+        String op = "";
         Scanner input = new Scanner(System.in);
 
         do {
-            System.out.println("CoopStock, solução inteligente em estoque" +
-                    "\nBem vindo!\n O que deseja realizar hoje?");
+            System.out.println("\n\nCoopStock, solução inteligente em estoque" +
+                    "\n\n\nBem vindo!\n\nO que deseja realizar hoje?");
             System.out.println("""
                     1- CADASTRAR PRODUTO
                     2- CONSULTAR PRODUTO
-                    3- ENTRADA DE PRODUTO
-                    4- SAIDA DE PRODUTO
-                    5- RELATÓRIO
-                    6- ENCERRAR""");
-            op = input.nextInt();
+                    3- ENCERRAR""");
+            op = input.next();
+            if(!op.equals("1") && !op.equals("2") && op.equals("3")){
+                System.out.println("Opção inválida, digite uma opção do menu em forma numeral!");
+
+            }
 
             switch (op) {
-                case 1: {
-                    System.out.println("cadastrou o produto");
-                    System.out.println("1");
+                case "1": {
+                cadastraProduto();
                     break;
                 }
-                case 6:{
-                    System.out.println("encerrando");
+                case "2": {
+                consultarProdutos();
+                break;
+                }
+                case "3": {
+                    System.out.println("Até mais!");
                     break;
                 }
             }
 
-        } while (op!=6);
+        } while (!op.equals("3"));
     }
 }
