@@ -10,7 +10,7 @@ public class ImplementaServico {
         int numCadastros = 0, i;
 
         Scanner entrada = new Scanner(System.in);
-        System.out.println("Quantos produtos vão ser cadastrados");
+        System.out.println("Quantos produtos vão ser cadastrados?");
         numCadastros = entrada.nextInt();
         if (numCadastros > produtos.length) {
             System.out.println("não há espaço no estoque para o numero de produtos informados, existe " + produtos.length +
@@ -21,7 +21,7 @@ public class ImplementaServico {
             for (i = 0; i < numCadastros; i++) {
                 produtos[i] = entrada.next();
             }
-            System.out.println(numCadastros + " produtos cadastrados com sucesso! De volta ao menu\n1");
+            System.out.println("produtos cadastrados com sucesso!");
         }
     }
 

@@ -32,7 +32,7 @@ public class Main {
                     2- CONSULTAR PRODUTO
                     3- ENCERRAR""");
             op = input.next();
-            if (!op.equals("1") && !op.equals("2") && op.equals("3")) {
+            if (!op.equals("1") && !op.equals("2") && !op.equals("3")) {
                 System.out.println("Opção inválida, digite uma opção do menu em forma numeral!");
 
             }
