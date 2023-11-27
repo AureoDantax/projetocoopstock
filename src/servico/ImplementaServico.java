@@ -69,7 +69,7 @@ public class ImplementaServico {
                  uma simples modificação no valor apresentado, para deixar mais visual */
                 int formataVaga = j + 1;
                 System.out.print("Vaga " + formataVaga + " - Produto: " + produtos[j] + " - " + "Qtd: "
-                                 + qtdProduto[j] + " unidades\n");
+                                 + qtdProduto[j] + " unidade(s)\n");
 
             }
 
@@ -82,16 +82,18 @@ public class ImplementaServico {
         Scanner input = new Scanner(System.in);
         int vagaEstoque;
 
-        System.out.println("Você deseja editar qual produto?\n");
         listaProdutos();
+        System.out.println("Você deseja editar qual produto?\n");
 
-        /*por conta da melhoria para apresentação no metodo de listagem, foi necessario retirar
-         o 1 somado na hora de editar o produto, para não pular posições */
-        vagaEstoque = input.nextInt() - 1;
 
-        if (vagaEstoque <= tamanhoEstoque) {
+        vagaEstoque = input.nextInt();
+
+        if (vagaEstoque > 0 && vagaEstoque <= tamanhoEstoque) {
             System.out.println("Digite 1 para editar o nome, digite 2 para editar a quantidade ou 3 para ambos");
 
+            /*por conta da melhoria para apresentação no metodo de listagem, foi necessario retirar
+         o 1 somado na hora de editar o produto, para não pular posições */
+            vagaEstoque--;
             int op = input.nextInt();
             switch (op) {
                 case 1 -> {
@@ -137,10 +139,12 @@ public class ImplementaServico {
         Scanner input = new Scanner(System.in);
         int novaQtd;
 
-        System.out.println("Digite a nova Quantidade");
+        System.out.println("Digite a nova quantidade em forma numeral");
         novaQtd = input.nextInt();
+
         qtdProduto[vagaEstoque] = novaQtd;
         System.out.println("Pronto, quantidade atualizada com sucesso!\n");
+        
     }
 
     public static void removeProduto() {
@@ -184,7 +188,7 @@ public class ImplementaServico {
             String op = input.next();
             if (op.equals("Sim") || op.equals("sim")) {
                 cadastraProduto();
-            } else if (op.equals("Não") || op.equals("não") || op.equals("nao")) {
+            } else if (op.equals("Não") || op.equals("não") || op.equals("nao") || op.equals("Nao")) {
                 System.out.println("Ok, vamos ao Menu");
                 menu();
             } else {
